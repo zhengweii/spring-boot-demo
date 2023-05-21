@@ -19,17 +19,6 @@ public class UserService {
     return userRepository.findAll();
   }
 
-  public boolean createUser(User user) {
-    try {
-      // Throws an error automatically if email is not unique
-      userRepository.save(user);
-      return true;
-    } catch (Exception e) {
-      System.out.println(e);
-      return false;
-    }
-  }
-
   public boolean deleteUserByEmail(String email) {
     try {
       Optional<User> user = userRepository.findByEmail(email);
